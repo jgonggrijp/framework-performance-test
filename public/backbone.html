@@ -12,11 +12,9 @@
         <div class="col-sm-9">
           <ul class="nav nav-pills">
             <li role="presentation"><a href="react.html">React</a></li>
-            <li role="presentation" class="active"><a href="jquery.html">jQuery</a></li>
+            <li role="presentation"><a href="jquery.html">jQuery</a></li>
             <li role="presentation"><a href="angular.html">Angular</a></li>
-            <li role="presentation"><a href="backbone.html">Backbone</a></li>
-            <li role="presentation" class="pull-right"><a href="./v1/jquery.html">v1</a></li>
-            <li role="presentation" class="pull-right active"><a href="./v2/jquery.html">v2</a></li>
+            <li role="presentation" class="active"><a href="backbone.html">Backbone</a></li>
           </ul>
         </div>
       </div>
@@ -41,8 +39,10 @@
       </div>
     </div>
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/underscore/underscore-min.js"></script>
+    <script src="/bower_components/backbone/backbone-min.js"></script>
     <script src="./js/data.js"></script>
-    <script src="./js/jquery/dashboard.js"></script>
+    <script src="./js/backbone/dashboard.js"></script>
     <script>
 
       function initialize() {
@@ -52,11 +52,11 @@
           changeCount: $('#change-input').val()
         });
 
-        $('#dashboard').dashboard({ factory: factory });
+        dashboard = new Dashboard({ factory: factory });
       }
 
       function update() {
-        $('#dashboard').dashboard('update');
+        dashboard.update();
       }
 
       $(function () {
