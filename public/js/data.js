@@ -12,7 +12,11 @@ var factory = (function () {
 
 		for (i = 0; i < options.maxCount; i++) {
 			var stateNum = Math.round(Math.random() * 100);
-			this.data[i] = { val: stateNum, color: getStateColor(stateNum) };
+			this.data[i] = {
+				id: i,
+				val: stateNum,
+				color: getStateColor(stateNum)
+			};
 		}
 
 		return this;
@@ -22,7 +26,12 @@ var factory = (function () {
 
 		for (i = 0; i < options.changeCount; i++) {
 			var stateNum = Math.round(Math.random() * 100);
-			this.data[Math.round(Math.random() * options.maxCount)] = { val: stateNum, color: getStateColor(stateNum) };
+			var index = Math.round(Math.random() * options.maxCount);
+			this.data[index] = {
+				id: index,
+				val: stateNum,
+				color: getStateColor(stateNum)
+			};
 		}
 
 		return this;

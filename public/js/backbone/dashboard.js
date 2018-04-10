@@ -15,14 +15,14 @@ var Dashboard = Backbone.View.extend({
 	el: '#dashboard',
 	initialize: function(options) {
 		this.factory = options.factory;
-		this.collection = new Backbone.Collection(identify(this.factory.data));
+		this.collection = new Backbone.Collection(this.factory.data);
 		this.items = this.collection.map(function(model) {
 			return new DashboardItem({model: model});
 		});
 		this.render();
 	},
 	update: function() {
-		this.collection.set(identify(this.factory.update().data));
+		this.collection.set(this.factory.update().data);
 	},
 	render: function() {
 		var $el = this.$el.empty();
@@ -31,9 +31,3 @@ var Dashboard = Backbone.View.extend({
 		}, this);
 	},
 });
-
-function identify(array) {
-	return _.map(array, function(element, index) {
-		return _.assign({id: index}, element);
-	});
-}
