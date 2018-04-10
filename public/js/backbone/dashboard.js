@@ -5,8 +5,8 @@ var DashboardItem = Backbone.View.extend({
 		this.listenTo(this.model, 'change', this.render);
 	},
 	render: function() {
-		this.$el.html(this.template(this.model.attributes));
-		this.$el.css('backgroundColor', this.model.get('color'));
+		var attr = this.model.attributes;
+		this.$el.html(this.template(attr)).css('backgroundColor', attr.color);
 		return this;
 	},
 });
@@ -15,26 +15,25 @@ var Dashboard = Backbone.View.extend({
 	el: '#dashboard',
 	initialize: function(options) {
 		this.factory = options.factory;
-		this.collection = new Backbone.Collection();
-		this.setData(this.factory.data);
+		this.collection = new Backbone.Collection(identify(this.factory.data));
 		this.items = this.collection.map(function(model) {
 			return new DashboardItem({model: model});
 		});
 		this.render();
 	},
 	update: function() {
-		this.setData(this.factory.update().data);
-	},
-	setData: function(data) {
-		var indexedData = _.zip(data, _.range(data.length));
-		var extendedData = _.map(indexedData, function(pair) {
-			return _.defaults({id: pair[1]}, pair[0]);
-		});
-		this.collection.set(extendedData);
+		this.collection.set(identify(this.factory.update().data));
 	},
 	render: function() {
+		var $el = this.$el.empty();
 		_.each(this.items, function(item) {
-			this.$el.append(item.render().el);
+			$el.append(item.render().el);
 		}, this);
 	},
 });
+
+function identify(array) {
+	return _.map(array, function(element, index) {
+		return _.assign({id: index}, element);
+	});
+}
