@@ -7,7 +7,7 @@ var factory = (function () {
 	function init(optionsIn) {
 
 		options = optionsIn;
-		
+
 		this.data = [];
 
 		for (i = 0; i < options.maxCount; i++) {
@@ -19,7 +19,7 @@ var factory = (function () {
 	}
 
 	function update() {
-		
+
 		for (i = 0; i < options.changeCount; i++) {
 			var stateNum = Math.round(Math.random() * 100);
 			this.data[Math.round(Math.random() * options.maxCount)] = { val: stateNum, color: getStateColor(stateNum) };
@@ -49,10 +49,23 @@ var factory = (function () {
 		return colour;
 	}
 
+	function logTime(label) {
+		// the outer timeout defers execution until the current stack is cleared
+		setTimeout(function(start) {
+			// the inner timeout delays until after anything that may have been
+			// deferred in the previous stack
+			setTimeout(function() {
+				var milliseconds = $.now() - start;
+				console.log(label + ' completed in ' + milliseconds + 'ms');
+			}, 1);
+		}, 1, $.now());
+	}
+
 	return {
 		init: init,
 		update: update,
-		data: data
+		data: data,
+		logTime: logTime
 	};
 
 })();

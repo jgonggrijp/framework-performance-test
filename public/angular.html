@@ -62,11 +62,13 @@
           changeCount: $('#change-input').val()
         });
 
+        factory.logTime('initialize');
         scope = angular.element($('#dashboard')).scope();
         scope.initialize({ factory: factory });
       }
 
       function update() {
+        factory.logTime('update');
         scope.update();
       }
 

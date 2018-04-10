@@ -52,10 +52,12 @@
           changeCount: $('#change-input').val()
         });
 
+        factory.logTime('initialize');
         $('#dashboard').dashboard({ factory: factory });
       }
 
       function update() {
+        factory.logTime('update');
         $('#dashboard').dashboard('update');
       }
 

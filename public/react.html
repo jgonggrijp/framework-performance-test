@@ -55,6 +55,7 @@
           changeCount: $('#change-input').val()
         });
 
+        factory.logTime('initialize');
         comp = React.render(
             React.createElement(Dashboard, { factory: factory }),
               document.getElementById('dashboard')
@@ -62,6 +63,7 @@
       }
 
       function update() {
+        factory.logTime('update');
         comp.update();
       }
 
