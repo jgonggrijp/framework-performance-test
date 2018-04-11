@@ -1,14 +1,16 @@
 {
-  "name": "react-performance-tests",
-  "description": "React.js, jQuery and Angular.js rendering performance tests",
+  "name": "framework-performance-test",
+  "description": "React.js, Angular.js and Backbone rendering performance test",
   "version": "0.0.1",
-  "homepage": "https://github.com/jonmiles/react-performance-tests",
   "author": {
     "name": "Jonathan Miles"
   },
+  "contributors": [{
+    "name": "Julian Gonggrijp"
+  }],
   "repository": {
     "type": "git",
-    "url": "git://github.com/jonmiles/react-performance-tests.git"
+    "url": "git://github.com/jgonggrijp/framework-performance-test.git"
   },
   "main": [],
   "scripts": {
@@ -35,9 +37,10 @@
     "jQuery",
     "angular",
     "angular.js",
+    "backbone",
     "rendering",
     "performance",
-    "tests",
-    "performance tests"
+    "test",
+    "performance test"
   ]
 }

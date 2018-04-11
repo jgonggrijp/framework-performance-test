@@ -1,6 +1,8 @@
-# React.js Performance Tests
+# Framework Performance Test
 
-The main objective was to test React.js’ relative performance of rendering browser updates against comparable frameworks, or approaches.  
+This was forked from @jonmiles' *React.js Performance Tests*. I still have to update this README. You find the old version below.
+
+The main objective was to test React.js’ relative performance of rendering browser updates against comparable frameworks, or approaches.
 
 ![View](results/react-v2-timeline-1.PNG)
 
@@ -24,7 +26,7 @@ The test scenario was purposely kept as simple as possible, in order that the im
 
 ### Real World Scenario
 
-I wanted to make the test scenario as real world as possible, the test’s had to be a practical application.  
+I wanted to make the test scenario as real world as possible, the test’s had to be a practical application.
 
 Over the past 10+ years I’ve been involved in the development of real-time dashboards, which typically involves a lot of high frequency page  updates.  It was based on this experience that I decided the test scenario would be dashboard related.  The implementation would be simply but would be designed to stress test the respective frameworks.
 
@@ -81,7 +83,7 @@ Tests where run 5 times against each approach to provide an average and to allow
 | 4  | 184ms  | 274ms  | [View](results/angular-v2-timeline-4.PNG)  |
 | 5  | 185ms  | 265ms  | [View](results/angular-v2-timeline-5.PNG)  |
 | **Avg** | **183ms**  | **261ms**  |   |
-  
+
 
 These results are only a small test sample with fix parameters.  I did run separate tests with different parameters, browsers etc. but as a whole the result above held up.  However, you may get different results so please feel free to test it yourself using the [live demo](http://jonmiles.github.io/react-performance-tests).
 
