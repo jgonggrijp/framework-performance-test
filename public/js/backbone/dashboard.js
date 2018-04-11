@@ -1,12 +1,14 @@
 var DashboardItem = Backbone.View.extend({
 	className: 'item',
-	template: _.template('<label><%= val %>%</label>'),
+	template: _.template('<%= val %>%'),
 	initialize: function(options) {
+		this.$el.$label = $('<label>').appendTo(this.el);
 		this.listenTo(this.model, 'change', this.render);
 	},
 	render: function() {
 		var attr = this.model.attributes;
-		this.$el.html(this.template(attr)).css('backgroundColor', attr.color);
+		this.$el.css('backgroundColor', attr.color)
+			.$label.text(this.template(attr));
 		return this;
 	},
 });
