@@ -1,6 +1,6 @@
 {
   "name": "framework-performance-test",
-  "description": "React.js, Angular.js and Backbone rendering performance test",
+  "description": "Angular.js, Backbone and React.js rendering performance test",
   "version": "0.0.1",
   "main": [],
   "keywords": [
