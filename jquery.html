@@ -1,21 +1,28 @@
 <html>
   <head>
-    <title>React.js Performance Tests</title>
+    <title>Framework Performance Test</title>
     <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
     <div class="container">
-      <h1>React.js Performance Tests</i></h1>
+      <h1>Framework Performance Test</h1>
       <br>
       <div class="row">
         <div class="col-sm-9">
           <ul class="nav nav-pills">
-            <li role="presentation"><a href="react.html">React</a></li>
-            <li role="presentation" class="active"><a href="jquery.html">jQuery</a></li>
-            <li role="presentation"><a href="angular.html">Angular</a></li>
-            <li role="presentation" class="pull-right"><a href="./v1/jquery.html">v1</a></li>
-            <li role="presentation" class="pull-right active"><a href="./v2/jquery.html">v2</a></li>
+            <li class=nav-item role="presentation">
+              <a href="jquery.html" class="nav-link active">Baseline</a>
+            </li>
+            <li class=nav-item role="presentation">
+              <a href="angular.html" class=nav-link>Angular</a>
+            </li>
+            <li class=nav-item role="presentation">
+              <a href="backbone.html" class=nav-link>Backbone</a>
+            </li>
+            <li class=nav-item role="presentation">
+              <a href="react.html" class=nav-link>React</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -51,10 +58,12 @@
           changeCount: $('#change-input').val()
         });
 
+        factory.logTime('initialize');
         $('#dashboard').dashboard({ factory: factory });
       }
 
       function update() {
+        factory.logTime('update');
         $('#dashboard').dashboard('update');
       }
 
