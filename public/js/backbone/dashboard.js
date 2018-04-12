@@ -25,9 +25,8 @@ var Dashboard = Backbone.View.extend({
 		this.collection.set(this.factory.update().data);
 	},
 	render: function() {
-		var $el = this.$el.empty();
-		_.each(this.items, function(item) {
-			$el.append(item.render().el);
-		}, this);
+		this.$el.empty().append(
+			_.chain(this.items).invoke('render').pluck('el').value()
+		);
 	},
 });
